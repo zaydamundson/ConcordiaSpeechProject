@@ -62,5 +62,11 @@ namespace ConcordiaSpeechProject
             base.OnMouseLeftButtonDown(e);
             DragMove();
         }
+
+        private void signupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new RegisterWindow().Show();
+            this.Close();
+        }
     }
 }

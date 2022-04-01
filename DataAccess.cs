@@ -49,6 +49,8 @@ namespace ConcordiaSpeechProject
                     PossibleMajor = possibleMajor,
                     Sex = sex
                 };
+
+
                */
                 List<Student> students = new List<Student>();
                 students.Add(new Student
@@ -71,10 +73,23 @@ namespace ConcordiaSpeechProject
 
             }
 
+           
+
             
         }
+        public void InsertNewRegistration(string username, string password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+                
+                
+                
+                connection.Execute("dbo.InsertNewRegistration @Username, @Password", $"{username}, {password}");
+            }
 
-       
+        }
+
+
 
 
     }
