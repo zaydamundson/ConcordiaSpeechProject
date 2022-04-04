@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Dapper;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.Data.SqlClient;
 
 namespace ConcordiaSpeechProject
 {
@@ -81,10 +81,42 @@ namespace ConcordiaSpeechProject
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
             {
+                connection.Open();
+                SqlCommand command = (SqlCommand)connection.CreateCommand();
+                command.CommandText = "dbo.InsertNewRegistration";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@Username", SqlDbType.NChar).Value = username;
+                command.Parameters.Add("@Password", SqlDbType.NChar).Value = password;
+                command.ExecuteNonQuery();
+                connection.Close();
+
+
+
+               // connection.Execute("dbo.InsertNewRegistration @Username, @Password", $"{username}");
+            }
+
+        }
+
+        public bool CheckLogin(string username, string password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+
+                connection.Open();
+                SqlCommand command = (SqlCommand)connection.CreateCommand();
+                command.CommandText = "dbo.CheckLogin";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@Username", SqlDbType.NChar).Value = username;
+                command.Parameters.Add("@Password", SqlDbType.NChar).Value = password;
+
+                var val = command.ExecuteReader().HasRows;
+                return val;
                 
-                
-                
-                connection.Execute("dbo.InsertNewRegistration @Username, @Password", $"{username}, {password}");
+               // connection.Close();
+
+
+               
+
             }
 
         }

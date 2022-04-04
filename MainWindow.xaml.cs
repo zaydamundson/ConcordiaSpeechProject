@@ -68,5 +68,28 @@ namespace ConcordiaSpeechProject
             new RegisterWindow().Show();
             this.Close();
         }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataAccess db = new DataAccess();
+
+
+
+            if (db.CheckLogin(txtUsername.Text, txtPassword.Password))
+            {
+                new OperatorWindow().Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Username or Password incorrect", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                txtUsername.Text = "";
+                txtPassword.Password = "";
+            }
+
+
+
+        }
     }
 }

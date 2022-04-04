@@ -40,7 +40,7 @@ namespace ConcordiaSpeechProject
 
                 db.InsertNewRegistration(txtUsername.Text, txtPassword.Password);
 
-                MessageBox.Show("Your account has been successfully ccreated", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Your account has been successfully created", "", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 txtUsername.Text = "";
                 txtPassword.Password = "";
