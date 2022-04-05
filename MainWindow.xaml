@@ -28,7 +28,7 @@
                     </StackPanel>
                 </materialDesign:PopupBox>
 
-            <Image Margin="0,60,0,5" Source="ConcordiaLogo.png" Height="100"></Image>
+            <Image Margin="0,60,0,5" Source="img/ConcordiaLogo.png" Height="100"></Image>
 
 
             <TextBlock Margin="0,25,0,5" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Text="Concordia Forensics" />

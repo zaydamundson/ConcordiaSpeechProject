@@ -28,6 +28,10 @@ namespace ConcordiaSpeechProject
 
    public String Sex { get; set; }
 
+    public String Comments { get; set; }
+
+    public bool Favorite { get; set; }
+
         
 //Read only to make string which represents a student
     public string FullInfo

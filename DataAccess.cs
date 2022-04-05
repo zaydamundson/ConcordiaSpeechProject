@@ -5,6 +5,8 @@ using Dapper;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Dynamic;
+using System.IO;
 
 namespace ConcordiaSpeechProject
 {
@@ -19,6 +21,20 @@ namespace ConcordiaSpeechProject
             }
            
         }
+        public List<Student> SearchStudents(string firstname, string lastname, string email, string phone, string highSchool)
+        {
+            
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+               
+                var output = connection.Query<Student>("dbo.SearchStudents @FirstName, @LastName, @Email, @PhoneNumber, @HighSchool", new { FirstName = firstname, LastName = lastname, Email = email, PhoneNumber = phone, HighSchool = highSchool }).ToList();
+                return output;
+              
+
+
+            }
+
+        }
 
         public List<Student> DisplayAllStudents()
         {
@@ -30,7 +46,7 @@ namespace ConcordiaSpeechProject
         }
 
         public void InsertStudent(string firstName, string lastName, string streetAddress, string city, string state, string zIPCode, 
-                                string phoneNumber, string email, string highSchool, string hSGradYear, string possibleMajor, string sex)
+                                string phoneNumber, string email, string highSchool, string hSGradYear, string possibleMajor, string sex, string comments)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
             {
@@ -66,10 +82,11 @@ namespace ConcordiaSpeechProject
                     HighSchool = highSchool,
                     HSGradYear = hSGradYear,
                     PossibleMajor = possibleMajor,
-                    Sex = sex
+                    Sex = sex,
+                    Comments = comments
                 });
                 //Stored procedure to insert data
-                connection.Execute("dbo.InsertStudent @FirstName, @LastName, @StreetAddress, @City, @State, @ZIPCode, @PhoneNumber, @Email, @HighSchool, @HSGradYear, @PossibleMajor, @Sex", students);
+                connection.Execute("dbo.InsertStudent @FirstName, @LastName, @StreetAddress, @City, @State, @ZIPCode, @PhoneNumber, @Email, @HighSchool, @HSGradYear, @PossibleMajor, @Sex, @Comments", students);
 
             }
 
