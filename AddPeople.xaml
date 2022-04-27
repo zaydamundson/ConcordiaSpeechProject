@@ -22,6 +22,7 @@
                 <TextBox x:Name="emailAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Email" ></TextBox>
                 <TextBox x:Name="phoneAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Phone"  ></TextBox>
                 <TextBox x:Name="schoolAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="School"  ></TextBox>
+                <TextBox x:Name="singleDoubleAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Single Double A"  ></TextBox>
                 <TextBox x:Name="addressAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Address"  ></TextBox>
                 <TextBox x:Name="cityAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="City"  ></TextBox>
                 <ComboBox x:Name="stateAdd" Margin="0,10,0,0" Width="150" materialDesign:HintAssist.Hint="State">
@@ -81,7 +82,7 @@
             </StackPanel>
             <StackPanel Margin="0,50,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <TextBox x:Name="zipAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="ZIP"  ></TextBox>
-                <TextBox x:Name="gradYearAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Grad Year"  ></TextBox>
+                <TextBox x:Name="gradYearAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Grad Year"></TextBox>
                 <TextBox x:Name="majorAdd" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Possible Major"  ></TextBox>
                 <ComboBox x:Name="sexAdd" Margin="0,10,0,0" Width="150" materialDesign:HintAssist.Hint="Sex" >
                     <ComboBoxItem x:Name="Female">Female</ComboBoxItem>

@@ -32,6 +32,8 @@ namespace ConcordiaSpeechProject
 
     public bool Favorite { get; set; }
 
+    public int ID { get; set; }
+
         
 //Read only to make string which represents a student
     public string FullInfo

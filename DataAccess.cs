@@ -94,6 +94,33 @@ namespace ConcordiaSpeechProject
 
             
         }
+
+        public void InsertCoach(string firstName, string lastName, string streetAddress, string city, string state, string zIPCode,
+                               string phoneNumber, string email, string highSchool, string SingleDouble, string comments)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+            
+                List<Coach> coaches = new List<Coach>();
+                coaches.Add(new Coach
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Address = streetAddress,
+                    City = city,
+                    State = state,
+                    ZIPCode = zIPCode,
+                    PhoneNumber = phoneNumber,
+                    Email = email,
+                    School = highSchool,
+                    Single_Double_A = SingleDouble,
+                    Comments = comments
+                });
+                //Stored procedure to insert data
+                connection.Execute("dbo.InsertCoach @Single_Double_A, @FirstName, @LastName, @Address, @City, @State, @ZIPCode, @PhoneNumber, @Email, @School, @Comments", coaches);
+
+            }
+        }
         public void InsertNewRegistration(string username, string password)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))

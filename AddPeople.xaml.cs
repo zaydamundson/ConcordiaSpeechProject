@@ -51,7 +51,23 @@ namespace ConcordiaSpeechProject
             }
             else if (comboBoxSelect.SelectedItem == coachOption)
             {
+                DataAccess db = new DataAccess();
+                db.InsertCoach(firstNameAdd.Text, lastNameAdd.Text, addressAdd.Text, cityAdd.Text, stateAdd.Text, zipAdd.Text, phoneAdd.Text,
+               emailAdd.Text, schoolAdd.Text,singleDoubleAdd.Text, commentsAdd.Text );
 
+                firstNameAdd.Text = "";
+                lastNameAdd.Text = "";
+                addressAdd.Text = "";
+                cityAdd.Text = "";
+                stateAdd.Text = "";
+                zipAdd.Text = "";
+                phoneAdd.Text = "";
+                emailAdd.Text = "";
+                schoolAdd.Text = "";
+                singleDoubleAdd.Text = "";
+                commentsAdd.Text = "";
+
+                MessageBox.Show("New Coach Added", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
