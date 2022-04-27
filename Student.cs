@@ -2,7 +2,7 @@ using System;
 
 namespace ConcordiaSpeechProject
 {
-    public class Student
+    public class Student : Person
 {
    public string FirstName { get; set; } 
 
@@ -43,6 +43,22 @@ namespace ConcordiaSpeechProject
                 return $"{FirstName} {LastName} {Email}";
             }
             
+        }
+
+    public string FullName
+        {
+            get
+            {
+                return $"{FirstName}{LastName}";
+            }
+        }
+
+    public string Address
+        {
+            get
+            {
+                return $"{StreetAddress}, {City} {State}";
+            }
         }
 
 

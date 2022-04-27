@@ -22,7 +22,8 @@ namespace ConcordiaSpeechProject
     /// </summary>
     public partial class MainPage : Page
     {
-        List<Student> students = new List<Student>();
+        List<Person> people = new List<Person>();
+        List<Coach> coaches = new List<Coach>();
         public MainPage()
         {
             InitializeComponent();
@@ -31,7 +32,13 @@ namespace ConcordiaSpeechProject
 
         private void UpdateBinding()
         {
-            peopleFoundListBox.ItemsSource = students;
+            
+            
+                peopleFoundListBox.ItemsSource = people;
+           
+            
+                
+            
             peopleFoundListBox.DisplayMemberPath = "FullInfo";
         }
 
@@ -62,7 +69,9 @@ namespace ConcordiaSpeechProject
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            people.Clear();
+            
+            // UpdateBinding();
         }
 
         private void findStudentButton_Click(object sender, RoutedEventArgs e)
@@ -70,13 +79,16 @@ namespace ConcordiaSpeechProject
             if(comboBoxSelect.SelectedItem == studentOption)
             {
                 DataAccess db = new DataAccess();
-                students = db.SearchStudents(fistNameLookup.Text, lastNameLookup.Text, emailLookup.Text, phoneLookup.Text, schoolLookup.Text);
+                people = db.SearchStudents(fistNameLookup.Text, lastNameLookup.Text, emailLookup.Text, phoneLookup.Text, schoolLookup.Text);
 
                 UpdateBinding();
             }
             else if(comboBoxSelect.SelectedItem == coachOption)
             {
+                DataAccess db = new DataAccess();
+                people = db.SearchCoaches(fistNameLookup.Text, lastNameLookup.Text, emailLookup.Text, phoneLookup.Text, schoolLookup.Text);
 
+                UpdateBinding();
             }
             
 
@@ -86,7 +98,23 @@ namespace ConcordiaSpeechProject
 
         private void peopleFoundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (comboBoxSelect.SelectedItem == studentOption)
+            {
+                Person item = (Person)peopleFoundListBox.SelectedItem;
+                SelectedContentPage page = new SelectedContentPage(item);
+                NavigationService.Navigate(page);
+
+            }
+            else if (comboBoxSelect.SelectedItem == coachOption)
+            {
+               
+
+            }
+
+
 
         }
+
+       
     }
 }

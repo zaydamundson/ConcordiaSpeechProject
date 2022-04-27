@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConcordiaSpeechProject
 {
-    public class Coach : Person
+    public class Person
     {
         public string FirstName { get; set; }
 
         public String LastName { get; set; }
 
-        public String Address { get; set; }
+        public String StreetAddress { get; set; }
 
         public String City { get; set; }
 
@@ -24,17 +24,24 @@ namespace ConcordiaSpeechProject
 
         public String Email { get; set; }
 
-        public String School { get; set; }
+        public String HighSchool { get; set; }
+
+        public string HSGradYear { get; set; }
+
+        public String PossibleMajor { get; set; }
+
+        public String Sex { get; set; }
+
+        public String Comments { get; set; }
 
         public String Single_Double_A { get; set; }
-
-      
-        public String Comments { get; set; }
 
         public bool Favorite { get; set; }
 
         public int ID { get; set; }
 
+
+        //Read only to make string which represents a student
         public string FullInfo
         {
             get
@@ -43,6 +50,21 @@ namespace ConcordiaSpeechProject
             }
 
         }
-    }
 
+        public string FullName
+        {
+            get
+            {
+                return $"{FirstName}{LastName}";
+            }
+        }
+
+        public string Address
+        {
+            get
+            {
+                return $"{StreetAddress}, {City} {State}";
+            }
+        }
+    }
 }

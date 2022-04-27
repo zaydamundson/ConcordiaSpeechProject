@@ -21,15 +21,30 @@ namespace ConcordiaSpeechProject
             }
            
         }
-        public List<Student> SearchStudents(string firstname, string lastname, string email, string phone, string highSchool)
+        public List<Person> SearchStudents(string firstname, string lastname, string email, string phone, string highSchool)
         {
             
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
             {
                
-                var output = connection.Query<Student>("dbo.SearchStudents @FirstName, @LastName, @Email, @PhoneNumber, @HighSchool", new { FirstName = firstname, LastName = lastname, Email = email, PhoneNumber = phone, HighSchool = highSchool }).ToList();
+                var output = connection.Query<Person>("dbo.SearchStudents @FirstName, @LastName, @Email, @PhoneNumber, @HighSchool", new { FirstName = firstname, LastName = lastname, Email = email, PhoneNumber = phone, HighSchool = highSchool }).ToList();
                 return output;
               
+
+
+            }
+
+        }
+
+        public List<Person> SearchCoaches(string firstname, string lastname, string email, string phone, string highSchool)
+        {
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+
+                var output = connection.Query<Person>("dbo.SearchCoaches @FirstName, @LastName, @Email, @PhoneNumber, @School", new { FirstName = firstname, LastName = lastname, Email = email, PhoneNumber = phone, School = highSchool }).ToList();
+                return output;
+
 
 
             }
@@ -50,24 +65,7 @@ namespace ConcordiaSpeechProject
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
             {
-               /* Student newStudent = new Student
-                {
-                    FirstName = firstName,
-                    LastName = lastName,
-                    StreetAddress = streetAddress,
-                    City = city,
-                    State = state,
-                    ZIPCode = zIPCode,
-                    PhoneNumber = phoneNumber,
-                    Email = email,
-                    HighSchool = highSchool,
-                    HSGradYear = hSGradYear,
-                    PossibleMajor = possibleMajor,
-                    Sex = sex
-                };
-
-
-               */
+               
                 List<Student> students = new List<Student>();
                 students.Add(new Student
                 {
@@ -93,6 +91,52 @@ namespace ConcordiaSpeechProject
            
 
             
+        }
+
+        public void EditPerson(string firstName, string lastName, string streetAddress, string city, string state, string zIPCode,
+                                string phoneNumber, string email, string highSchool, string hSGradYear, string possibleMajor, string sex, string comments, int iD)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+                List<Person> people = new List<Person>();
+                people.Add(new Person
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    StreetAddress = streetAddress,
+                    City = city,
+                    State = state,
+                    ZIPCode = zIPCode,
+                    PhoneNumber = phoneNumber,
+                    Email = email,
+                    HighSchool = highSchool,
+                    HSGradYear = hSGradYear,
+                    PossibleMajor = possibleMajor,
+                    Sex = sex,
+                    Comments = comments,
+                    ID = iD
+                }) ;
+
+                connection.Execute("dbo.EditStudents @FirstName, @LastName, @StreetAddress, @City, @State, @ZIPCode, @PhoneNumber, @Email, @HighSchool, @HSGradYear, @PossibleMajor, @Sex, @Comments, @ID", people);
+
+
+            }
+        }
+
+        public void DeleteStudent(int iD)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("SpeechData")))
+            {
+                List<Person> people = new List<Person>();
+                people.Add(new Person
+                {
+                    ID = iD
+                });
+                connection.Execute("dbo.DeleteStudent @ID", people);
+
+
+            }
+
         }
 
         public void InsertCoach(string firstName, string lastName, string streetAddress, string city, string state, string zIPCode,

@@ -22,6 +22,7 @@ namespace ConcordiaSpeechProject
     {
         public OperatorWindow()
         {
+            //Operator.Content = new MainPage();
             InitializeComponent();
         }
 
