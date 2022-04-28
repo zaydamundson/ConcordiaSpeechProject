@@ -80,7 +80,7 @@
                     <TextBox x:Name="SchoolEdit" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="School"></TextBox>
                     <TextBox x:Name="GradYearEdit" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Grad Year"></TextBox>
                     <TextBox x:Name="MajorEdit" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Major"></TextBox>
-                    <TextBox x:Name="SexEdit" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Sex"></TextBox>
+                    <TextBox x:Name="SingleDoubleEdit" Margin="0,0,15,0" Width="150" FontSize="18" materialDesign:HintAssist.Hint="Single Double"></TextBox>
                 </StackPanel>
                 <TextBox x:Name="CommentsEdit" Margin="0,0,15,0" Width="300" Height="200" TextWrapping="Wrap" FontSize="18" materialDesign:HintAssist.Hint="Comments"></TextBox>
                 <StackPanel  Orientation="Horizontal">

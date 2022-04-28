@@ -36,7 +36,7 @@ namespace ConcordiaSpeechProject
             SchoolEdit.Text = item.HighSchool;
             GradYearEdit.Text = item.HSGradYear;
             MajorEdit.Text = item.PossibleMajor;
-            SexEdit.Text = item.Sex;
+            SingleDoubleEdit.Text = item.Single_Double_A;
             CommentsEdit.Text = item.Comments;
 
         }
@@ -49,19 +49,42 @@ namespace ConcordiaSpeechProject
 
         private void SaveEdit_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess db = new DataAccess();
-            db.EditPerson(FirstNameEdit.Text, LastNameEdit.Text, StreetEdit.Text, CityEdit.Text, stateEdit.Text, ZIPEdit.Text,
-                                PhoneEdit.Text, EmailEdit.Text, SchoolEdit.Text, GradYearEdit.Text, MajorEdit.Text, SexEdit.Text, CommentsEdit.Text, Item.ID);
+
+            if (Item.IsStudent == false)
+            {
+                DataAccess db = new DataAccess();
+                db.EditCoach(SingleDoubleEdit.Text, FirstNameEdit.Text, LastNameEdit.Text, StreetEdit.Text, CityEdit.Text, stateEdit.Text, ZIPEdit.Text,
+                                PhoneEdit.Text, EmailEdit.Text, SchoolEdit.Text, CommentsEdit.Text, Item.ID);
+            }
+            else
+            {
+                DataAccess db = new DataAccess();
+                db.EditStudent(FirstNameEdit.Text, LastNameEdit.Text, StreetEdit.Text, CityEdit.Text, stateEdit.Text, ZIPEdit.Text,
+                                PhoneEdit.Text, EmailEdit.Text, SchoolEdit.Text, GradYearEdit.Text, MajorEdit.Text, CommentsEdit.Text, Item.ID);
+            }
+            
 
             MessageBox.Show("Saved", "", MessageBoxButton.OK, MessageBoxImage.Information);
+            
+
+           
             SelectedContentPage page = new SelectedContentPage(Item);
             NavigationService.Navigate(page);
         }
 
         private void DeletePerson_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess db = new DataAccess();
-            db.DeleteStudent(Item.ID);
+            if (Item.IsStudent == false)
+            {
+                DataAccess db = new DataAccess();
+                db.DeleteCoach(Item.ID);
+            }
+            else
+            {
+                DataAccess db = new DataAccess();
+                db.DeleteStudent(Item.ID);
+            }
+                
             MessageBox.Show("Deleted", "", MessageBoxButton.OK, MessageBoxImage.Information);
             MainPage page = new MainPage();
             NavigationService.Navigate(page);

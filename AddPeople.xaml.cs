@@ -53,7 +53,7 @@ namespace ConcordiaSpeechProject
             {
                 DataAccess db = new DataAccess();
                 db.InsertCoach(firstNameAdd.Text, lastNameAdd.Text, addressAdd.Text, cityAdd.Text, stateAdd.Text, zipAdd.Text, phoneAdd.Text,
-               emailAdd.Text, schoolAdd.Text,singleDoubleAdd.Text, commentsAdd.Text );
+               emailAdd.Text, schoolAdd.Text,singleDoubleAdd.Text, commentsAdd.Text);
 
                 firstNameAdd.Text = "";
                 lastNameAdd.Text = "";
@@ -64,6 +64,7 @@ namespace ConcordiaSpeechProject
                 phoneAdd.Text = "";
                 emailAdd.Text = "";
                 schoolAdd.Text = "";
+                majorAdd.Text = "";
                 singleDoubleAdd.Text = "";
                 commentsAdd.Text = "";
 

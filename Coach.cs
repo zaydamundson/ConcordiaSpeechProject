@@ -35,6 +35,8 @@ namespace ConcordiaSpeechProject
 
         public int ID { get; set; }
 
+        public bool IsStudent { get; set; }
+
         public string FullInfo
         {
             get

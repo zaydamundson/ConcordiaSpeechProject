@@ -40,6 +40,8 @@ namespace ConcordiaSpeechProject
 
         public int ID { get; set; }
 
+        public bool IsStudent { get; set; }
+
 
         //Read only to make string which represents a student
         public string FullInfo

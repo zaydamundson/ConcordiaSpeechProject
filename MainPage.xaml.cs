@@ -98,18 +98,16 @@ namespace ConcordiaSpeechProject
 
         private void peopleFoundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBoxSelect.SelectedItem == studentOption)
-            {
+            
                 Person item = (Person)peopleFoundListBox.SelectedItem;
                 SelectedContentPage page = new SelectedContentPage(item);
                 NavigationService.Navigate(page);
 
-            }
-            else if (comboBoxSelect.SelectedItem == coachOption)
-            {
-               
+            
+            
+                
 
-            }
+            
 
 
 

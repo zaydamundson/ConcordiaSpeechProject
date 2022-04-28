@@ -26,7 +26,9 @@ namespace ConcordiaSpeechProject
             InitializeComponent();
 
             Item = item;
+            
             NameText.Text = item.FullName;
+            
             AddressText.Text = item.Address;
             PhoneText.Text = item.PhoneNumber;
             EmailText.Text = item.Email;

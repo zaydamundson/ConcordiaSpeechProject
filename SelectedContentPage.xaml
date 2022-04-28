@@ -13,35 +13,37 @@
     <Grid>
         <StackPanel>
                 
-                <StackPanel Margin="0,50,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" >
-                <TextBlock x:Name="NameLabel" Text ="Name: " HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock x:Name="NameText" HorizontalAlignment="Left" FontSize="20"/>
                 
-                <TextBlock x:Name="EmailLabel" Text="Email: " HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock x:Name="EmailText" HorizontalAlignment="Left" FontSize="20"/>
+            <StackPanel Margin="0,50,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="center" >
+                <TextBlock x:Name="NameLabel" Text ="Name: " HorizontalAlignment="Left" FontSize="24"/>
+                    <TextBlock x:Name="NameText" HorizontalAlignment="Left"  FontSize="24"/>
+                
+
+                    <TextBlock x:Name="EmailLabel" Text="Email: " HorizontalAlignment="Left" FontSize="24"/>
+                <TextBlock x:Name="EmailText" HorizontalAlignment="Left" FontSize="24"/>
                 <TextBlock x:Name="PhoneLabel" Text="Phone Number: " HorizontalAlignment="Left" FontSize="24"/>
-                <TextBlock x:Name="PhoneText" HorizontalAlignment="Left" FontSize="20"/>
+                <TextBlock x:Name="PhoneText" HorizontalAlignment="Left" FontSize="24"/>
             </StackPanel>
                 <StackPanel Margin="0,50,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <TextBlock x:Name="StreetLabel" Text="Address: " HorizontalAlignment="Left" FontSize="24"/>
                
-                <TextBlock x:Name="AddressText" HorizontalAlignment="Left" FontSize="20"/>
+                <TextBlock x:Name="AddressText" HorizontalAlignment="Left" FontSize="24"/>
               
             </StackPanel >
                 <StackPanel Margin="0,50,0,0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
                 <TextBlock x:Name="SchoolLabel" Margin ="0,0,0,0" Text="School: " VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
-                    <TextBlock x:Name="SchoolText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20"/>
+                    <TextBlock x:Name="SchoolText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
                     <TextBlock x:Name="GradLabel" Text="Graduation Year: " VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
-                    <TextBlock x:Name="GradText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20"/>
+                    <TextBlock x:Name="GradText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
                     <TextBlock x:Name="MajorLabel" Text="Major: " VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
-                    <TextBlock x:Name="MajorText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20"/>
+                    <TextBlock x:Name="MajorText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
                     <TextBlock x:Name="SexLabel" Text="Sex: " VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
-                    <TextBlock x:Name="SexText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20"/>
+                    <TextBlock x:Name="SexText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
             </StackPanel>
 
-                <StackPanel Margin="0,50,0,0" Orientation="Horizontal">
+                <StackPanel Margin="60,50,0,0" Orientation="Horizontal">
                     <TextBlock x:Name="CommentsLabel" VerticalAlignment="Bottom" Text="Comments: " HorizontalAlignment="Left" FontSize="24"/>
-                    <TextBlock x:Name="CommentsText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="20"/>
+                    <TextBlock x:Name="CommentsText" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="24"/>
             </StackPanel>
 
                 <Button HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="30" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="15" Content="Edit" Click="Button_Click" ></Button>
